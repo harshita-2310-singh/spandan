@@ -394,31 +394,26 @@ function StudentRoomPage() {
         <Sidebar user={user} />
         <div style={{ flex: 1, marginLeft: '240px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <div style={{ textAlign: 'center', maxWidth: '480px', padding: '32px' }}>
-            {isQuestionLive ? (
-              <div style={{ 
-                width: '64px', height: '64px', margin: '0 auto 24px',
-                borderRadius: '50%', background: 'rgba(59, 130, 246, 0.1)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-              }}>
-                <span style={{ fontSize: '32px' }}>⏳</span>
-              </div>
-            ) : (
-              <div style={{ fontSize: '72px', marginBottom: '24px' }}>🔒</div>
-            )}
+            <div style={{ 
+              width: '64px', height: '64px', margin: '0 auto 24px',
+              borderRadius: '50%', background: 'rgba(59, 130, 246, 0.1)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+            }}>
+              <span style={{ fontSize: '32px' }}>⏳</span>
+            </div>
             
             <h2 style={{ margin: '0 0 12px', fontSize: '24px', fontWeight: '800', color: 'var(--text-primary)' }}>
-              {isQuestionLive ? 'Please Wait' : 'Session Closed'}
+              Almost There
             </h2>
-            <p style={{ margin: '0 0 28px', color: 'var(--text-secondary)', fontSize: '15px', lineHeight: '1.6' }}>
-              {error || 'This session is no longer accepting new participants. Please check with your teacher.'}
+            <p style={{ margin: '0 0 8px', color: 'var(--text-secondary)', fontSize: '15px', lineHeight: '1.6' }}>
+              {isQuestionLive
+                ? 'A question is currently in progress. You\'ll join right in once it wraps up.'
+                : 'The host has locked the room. You\'ll be able to join as soon as they unlock it.'}
             </p>
-            <button onClick={() => navigate('/student')} style={{
-              padding: '14px 32px', background: '#3b82f6', color: 'white',
-              border: 'none', borderRadius: '12px', fontSize: '15px', fontWeight: '600', cursor: 'pointer'
-            }}>
-              ← Back to Dashboard
-            </button>
+            <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '13px', fontStyle: 'italic' }}>
+              Just sit tight — you don't need to do anything.
+            </p>
           </div>
         </div>
       </div>
